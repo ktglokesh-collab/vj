@@ -53,45 +53,29 @@ export const ResourceNode: React.FC<ResourceNodeProps> = ({
         transform: 'translate(-50%, -50%)',
         width: '185px',
         backgroundColor: 'var(--surface-1)',
-        backdropFilter: 'blur(16px)',
-        WebkitBackdropFilter: 'blur(16px)',
-        border: `2px solid ${
+        border: `1px solid ${
           isSelected
-            ? 'var(--accent-cyan)'
+            ? 'var(--accent-primary)'
             : isDanger
-            ? 'var(--status-danger)'
+            ? 'var(--status-danger-border)'
             : isWarn
-            ? 'var(--status-warning)'
-            : 'var(--border-glass)'
+            ? 'var(--status-warning-border)'
+            : 'var(--border-subtle)'
         }`,
         borderRadius: 'var(--radius-lg)',
-        padding: '12px 16px',
+        padding: '12px 14px',
         boxShadow: isSelected
-          ? '0 0 24px var(--accent-cyan-glow), var(--shadow-md)'
-          : isDanger
-          ? '0 0 16px var(--status-danger-border), var(--shadow-md)'
-          : 'var(--shadow-md)',
+          ? '0 0 0 2px var(--accent-primary), var(--shadow-md)'
+          : 'var(--shadow-sm)',
         cursor: 'pointer',
-        transition: 'all 200ms cubic-bezier(0.16, 1, 0.3, 1)',
+        transition: 'all 140ms ease',
         zIndex: isSelected ? 25 : 10,
       }}
     >
-      {/* Top light reflection */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: '10%',
-          right: '10%',
-          height: '1px',
-          background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent)',
-        }}
-      />
-
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
           {getIcon()}
-          <span style={{ fontSize: '0.8125rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+          <span style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'var(--text-primary)' }}>
             {label}
           </span>
         </div>
